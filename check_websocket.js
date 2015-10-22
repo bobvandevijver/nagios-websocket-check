@@ -16,6 +16,11 @@ if (process.argv[5] == 'v'){
   console.log('Connecting to ' + protocol + host + ':' + port + '/' + url); 
 }
 
+setTimeout(function(){
+  console.log("Connection timeout");
+  process.exit(2);
+}, 5000);
+
 process.on('uncaughtException', function (err) {
   console.error(err.stack);
   process.exit(2);
@@ -38,7 +43,7 @@ var app = wamp.connect(protocol + host + ':' + port + '/' + url,
                 console.log("result: " + JSON.stringify(reply));
               }
               if (reply.status == 200) {
-                console.log("Websocket connection succesful");
+                console.log("Websocket connection successful");
                 process.exit();
               } else {
                 console.log("Websocket connected, but incorrect response given on call (status != 200)");

@@ -2,6 +2,8 @@
 
 This is a simple Nagios/Icinga websocket check which can be called from whatever place you like. 
 
+## Installation
+
 Make sure to have the following installed:
 
 * Node JS
@@ -9,7 +11,21 @@ Make sure to have the following installed:
 * debug module
 * when module
 
-Simply clone this repository to your preferred installation. The command syntax is as follows:
+Simply clone this repository to your preferred installation directory. You need to install the modules in the plugin directory. You can use the following script:
+
+```
+cd /usr/local/src
+git clone https://github.com/bobvandevijver/nagios-websocket-check.git
+cd nagios-websocket-plugin
+apt-get install nodejs
+npm install ws
+npm install debug
+npm install when
+```
+
+## Usage
+
+The commandline syntax of the check is as follows:
 
 ```
 node check_websocket.js host port url [v]

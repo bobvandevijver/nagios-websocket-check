@@ -8,7 +8,7 @@
  * Module dependencies.
  */
 
-var EventEmitter = process.EventEmitter
+var EventEmitter = require('events')
   , handlers = require('./handlers')
   , protocol = require('./protocol')
   , debug = require('debug')('wamp');

@@ -281,7 +281,7 @@ function Client(wsuri, onconnect, onhangup, options, givenwsoptions) {
   var wsoptions = extend({}, defaultwsoptions, givenwsoptions); 
   
   // create the websocket connection
-  var ws = new WebSocket(wsuri, wsoptions);
+  var ws = new WebSocket(wsuri, 'wamp', wsoptions);
  
   // establish session to WAMP server
   var session = new Session(ws,

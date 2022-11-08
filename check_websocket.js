@@ -8,9 +8,10 @@ var protocol = 'wss://';
 var host = process.argv[2];
 var port = process.argv[3];
 var url = process.argv[4];
+var family = process.argv[5] !== undefined ? Number(process.argv[5]) : undefined;
 
 var debug = false;
-if (process.argv[5] == 'v'){
+if (process.argv[6] == 'v'){
   debug = true;
   wamp.debug(true, true);
   console.log('Connecting to ' + protocol + host + ':' + port + '/' + url); 
@@ -74,7 +75,8 @@ var app = wamp.connect(protocol + host + ':' + port + '/' + url,
     }, 
     {},
     {
-      origin: host
+      origin: host,
+      family: family
     }
   ); 
 
